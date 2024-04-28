@@ -34,6 +34,42 @@ b_h = (3*60)+19
 i_w = 303-16-32
 c_w = 303+(32-16)
 
+def doNext(message, left, all_sprites_list, block_list, monsta_list, pacman_collide, wall_list, gate):
+
+    while True:
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                pygame.quit()
+            if event.type == pygame.KEYDOWN:
+                if event.key == pygame.K_ESCAPE:
+                    pygame.quit()
+                if event.key == pygame.K_RETURN:
+                    del all_sprites_list
+                    del block_list
+                    del monsta_list
+                    del pacman_collide
+                    del wall_list
+                    del gate
+                    startGame()
+        
+        w = pygame.Surface((400, 200))
+        w.set_alpha(10)
+        w.fill((128, 128, 128))
+        screen.blit(w, (100, 200))
+
+        text1 = font.render(message, True, element_color["white"])
+        screen.blit(text1, [left, 233])
+
+        text2 = font.render("To play again , press ENTER", True, element_color["white"])
+        screen.blit(text2, [135, 303])
+
+        text3 = font.render("To quit, press ESCAPE", True, element_color["white"])
+        screen.blit(text3, [165, 333])
+
+        pygame.display.flip()
+        clock.tick(10)
+
+
 def startGame():
 
     all_sprites_list = pygame.sprite.RenderPlain()
@@ -180,3 +216,6 @@ def startGame():
         pygame.display.flip()
         clock.tick(10)
 
+startGame()
+
+pygame.quit()
