@@ -15,7 +15,6 @@ class Wall(pygame.sprite.Sprite):
         self.rect.left = x
         self.rect.top = y
 
-
 # create walls
 def setupRoomOne(all_sprites_list):
 
