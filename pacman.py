@@ -213,6 +213,11 @@ def startGame():
         if score == bll:
             doNext("Congratutaions", 145, all_sprites_list, block_list, monsta_list, pacman_collide, wall_list, gate)
 
+        monsta_hit_list = pygame.sprite.spritecollide(Pacman, monsta_list, False)
+
+        if monsta_hit_list:
+            doNext("Game Over", 235, all_sprites_list, block_list, monsta_list, pacman_collide, wall_list, gate)
+
         pygame.display.flip()
         clock.tick(10)
 
