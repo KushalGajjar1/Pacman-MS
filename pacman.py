@@ -112,7 +112,7 @@ def startGame():
     monsta_list.add(Clyde)
     all_sprites_list.add(Clyde)
 
-    for row in range(10):
+    for row in range(19):
         for column in range(19):
             if (row == 7 or row == 8) and (column == 8 or column == 9 or column == 10):
                 continue
